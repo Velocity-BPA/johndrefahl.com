@@ -35,12 +35,16 @@ err() { echo -e "${RED}[error]${NC} $1" >&2; exit 1; }
 sync_files() {
   log "Syncing files to s3://${BUCKET}..."
 
+  # No --delete, deliberately. The bucket serves files this repo may not hold
+  # (older resume URLs that are already out in the world), and --delete would
+  # remove every one of them on the next sync. To retire a file, delete it from
+  # the bucket by hand, on purpose.
+
   aws s3 sync "$SITE_DIR" "s3://${BUCKET}" \
     --exclude "deploy.sh" \
     --exclude ".DS_Store" \
     --exclude "*.md" \
     --exclude ".git/*" \
-    --delete \
     --cache-control "public, max-age=3600" \
     --region "$REGION"
 
