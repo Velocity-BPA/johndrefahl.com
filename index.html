@@ -58,6 +58,9 @@ h3{font-family:var(--font-mono);font-size:16px;font-weight:700;line-height:1.4;m
 p{color:var(--text-secondary);margin-bottom:16px;}
 p:last-child{margin-bottom:0;}
 .hero{padding-top:calc(var(--nav-height) + 80px);padding-bottom:72px;border-bottom:1px solid var(--border);}
+.hero-top{display:flex;align-items:center;gap:32px;margin-bottom:28px;}
+.hero-photo{width:152px;height:152px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--accent);box-shadow:var(--card-shadow);background:var(--bg-tertiary);}
+.hero-top .hero-subtitle{margin-bottom:0;}
 .hero-name{font-family:var(--font-serif);font-size:clamp(36px,7vw,56px);font-weight:600;line-height:1.1;color:var(--text-primary);margin-bottom:12px;letter-spacing:-0.03em;}
 .hero-title{font-family:var(--font-mono);font-size:clamp(13px,2.2vw,15px);color:var(--accent);margin-bottom:8px;font-weight:400;letter-spacing:-0.01em;}
 .hero-subtitle{font-family:var(--font-mono);font-size:13px;color:var(--text-muted);margin-bottom:28px;}
@@ -121,7 +124,7 @@ p:last-child{margin-bottom:0;}
 .resume-fab{position:fixed;bottom:28px;right:28px;z-index:200;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--bg-primary);background:var(--accent);border:none;padding:12px 20px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.18);cursor:pointer;text-decoration:none;transition:background var(--transition-speed),box-shadow var(--transition-speed),transform 0.15s;}
 .resume-fab:hover{background:var(--accent-hover);color:var(--bg-primary);box-shadow:0 6px 24px rgba(0,0,0,0.24);transform:translateY(-1px);}
 @media(max-width:700px){.resume-fab{bottom:20px;right:16px;padding:10px 16px;font-size:12px;}}
-@media(max-width:700px){section{padding:48px 0;}.hero{padding-top:calc(var(--nav-height) + 48px);padding-bottom:48px;}.nav-links .nav-link{display:none;}.nav-menu-btn{display:block;}.nav-links.open .nav-link{display:block;}.nav-links.open{position:fixed;top:var(--nav-height);left:0;right:0;background:var(--bg-primary);border-bottom:1px solid var(--border);flex-direction:column;padding:16px 24px;gap:12px;}.timeline-item{grid-template-columns:1fr;gap:4px;padding:16px 0;}.metrics-grid{grid-template-columns:repeat(2,1fr);}.cert-list li{flex-direction:column;gap:2px;}.footer-inner{flex-direction:column;align-items:flex-start;}.project{padding:20px;}}
+@media(max-width:700px){.hero-top{flex-direction:column;align-items:flex-start;gap:20px;}.hero-photo{width:112px;height:112px;}section{padding:48px 0;}.hero{padding-top:calc(var(--nav-height) + 48px);padding-bottom:48px;}.nav-links .nav-link{display:none;}.nav-menu-btn{display:block;}.nav-links.open .nav-link{display:block;}.nav-links.open{position:fixed;top:var(--nav-height);left:0;right:0;background:var(--bg-primary);border-bottom:1px solid var(--border);flex-direction:column;padding:16px 24px;gap:12px;}.timeline-item{grid-template-columns:1fr;gap:4px;padding:16px 0;}.metrics-grid{grid-template-columns:repeat(2,1fr);}.cert-list li{flex-direction:column;gap:2px;}.footer-inner{flex-direction:column;align-items:flex-start;}.project{padding:20px;}}
 @media(max-width:420px){.metrics-grid{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp 0.5s ease forwards;}@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}.fade-in:nth-child(1){animation-delay:0.05s;}.fade-in:nth-child(2){animation-delay:0.1s;}.fade-in:nth-child(3){animation-delay:0.15s;}.fade-in:nth-child(4){animation-delay:0.2s;}}
 </style>
@@ -143,9 +146,14 @@ p:last-child{margin-bottom:0;}
 </nav>
 <header class="hero">
   <div class="container">
-    <h1 class="hero-name fade-in">John Drefahl</h1>
-    <p class="hero-title fade-in">Founder, BIDLINE  |  n8n Automation Engineer  |  AI Workflow Architect</p>
-    <p class="hero-subtitle fade-in">Building BIDLINE: web app, iOS and Android apps, Super Admin console  |  n8n Certified Level 1 and 2  |  30+ Years Experience  |  Currently Available for Employment</p>
+    <div class="hero-top">
+      <img class="hero-photo fade-in" src="/headshot.jpg" width="152" height="152" alt="John Drefahl">
+      <div>
+      <h1 class="hero-name fade-in">John Drefahl</h1>
+      <p class="hero-title fade-in">Founder, BIDLINE  |  n8n Automation Engineer  |  AI Workflow Architect</p>
+      <p class="hero-subtitle fade-in">Building BIDLINE: web app, iOS and Android apps, Super Admin console  |  n8n Certified Level 1 and 2  |  30+ Years Experience  |  Currently Available for Employment</p>
+      </div>
+    </div>
     <div class="hero-meta fade-in">
       <span class="hero-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Grayslake, IL (Remote)</span>
       <a class="hero-chip" href="mailto:john@velobpa.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>john@velobpa.com</a>
